@@ -1,4 +1,9 @@
 
+## memory databases
+
+--
+
+
 ## math/numbers ai eng should know 
 
 - PetaFLOP/s-days is a terrible unit. I propose the "person" = 20 PFLOPS, and the "person-year". GPT-3 was 1024 A100s for 34 days. (1024*312e12*34 / (20e15*365)) 1.5 person-years GPT-4 was 25k A100s for 90 days. (25e3*312e12*90 / (20e15*365)) 96 person-years https://twitter.com/karpathy/status/1690906227981905920
@@ -11,6 +16,26 @@
 - https://epochai.org/trends
 - human analogies
 	- https://x.com/atroyn/status/1749203484543787435?s=46&t=90xQ8sGy63D2OtiaoGJuww
+- [10^25 vs 10^26](https://jack-clark.net/2024/03/28/what-does-1025-versus-1026-mean/)
+	- Assumptions:
+Using FP8 precision – various frontier labs (e.g, Inflection) have trained using FP8
+40% efficiency – assuming you’ve worked hard to make your training process efficient. E.g., Google claims ~46% for PALM 540B
+$2 per chip hour – assuming bulk discounts from economies-of-scale.
+Training a standard Transformer-based, large generative model.
+
+10^26
+Flops per chip second = 2000e12* × 0.4 = 8E14
+Flops per chip hour = flops per chip s × 60 (seconds per minute) × 60 (minutes per hour) = 2.88E18
+chip h = 1e26 / flops per chip h = 34.722M
+chip h × $2 = $69.444M
+
+*3958 TFLOPS (for fp8 with sparsity) on H100 SXM divided by 2 (because the 2x sparsity support generally isn’t relevant for training), so the right number is 1979e12. But the datasheet doesn’t have enough information to tell you that; you just have to know!
+
+
+[cost to alphazero](https://twitter.com/finbarrtimbers/status/1765478681194234074?s=12&t=90xQ8sGy63D2OtiaoGJuww)
+- my estimate is more like $1.7M. They trained with 5016 TPU chips for 13 days for chess, 9 hours in Chess, and 12 hours in Shogi. This is a total of 333 hours. The total cost is then 1.67M TPU chip-hours. They used v1 TPUs, which I don't think ever had public pricing. A v2 TPU costs <$1 per chip-hour at the 1 year commitment level. So that's less than $1.7M per training run. The 3 year commitment price is ~$0.5873 per chip-hour, which is probably a more reasonable estimate for Google's internal price (although still high by at least a factor of 2, imo). That would mean the total cost is ~$980k. Are we assuming they did 36 full training runs? That seems unlikely.
+- 
+- 4x-5x scaling in compute - https://www.reddit.com/r/singularity/comments/1d3xfhs/the_amount_of_compute_used_in_training_is/
 
 ### where are all the ai engineers?
 
@@ -113,6 +138,7 @@ varun
 				- mosaic paper had another model that was 5-6x smaller 360m. 
 				- google came in and fked all these guys up
 	- https://severelytheoretical.wordpress.com/2022/07/18/thoughts-on-the-new-scaling-laws-for-large-language-models/
+	- https://arxiv.org/pdf/2401.00448.pdf
 - but chinchilla not end all be all - SERVING time also matters
 	- param count up, model capability up, but serving slowly
 	- makes sense to train a smaller model, spend more on training it
@@ -207,6 +233,7 @@ full training - 10x-100x of a single run
 energy
 - 1 V100 GPU - 300W per day
 - 10k V100 GPUs x 13 days = 936 MWh
+- nother way of looking at the sparsity win is to consider NVIDIAs new H100 GPU costing about $30K.  Including networking, backplane and support hardware costs, each of these processors consumes about 500 watts of power.  Cooling and other facilities require another large chunk of energy.  So 30 H100s will run about $1M up front, and another $1M a year in total energy cost.  That's a very, very expensive cost center.  Project that to the scale of supercomputers like the ORNL Frontier system, which has 40,000 GPUs, cost $600M, consumes 25MW of power, and can only achieve %0.8 peak operations on common sparse problems, and you can see there's a huge market gap here.
 - Power Usage Effectiveness - 1.5 datacenter (as low as 1.15)
 	- so true cost 936 * 1.5 = 1404 MWh
 - 1 MW = 2k homes

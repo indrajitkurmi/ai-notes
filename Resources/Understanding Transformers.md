@@ -6,10 +6,12 @@ swyx's to-read list (incl a lot of history)
 ELI5: https://news.ycombinator.com/item?id=35977891
 2017 paper
 - https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html?m=1
+- nice podcast with Ashish and Jakob https://soundcloud.com/nlp-highlights/36-attention-is-all-you-need-with-ashish-vaswani-and-jakob-uszkoreit
 - 30min Yannick Kilcher video review https://www.youtube.com/watch?v=iDulhoQ2pro, 10min [shorter version](https://www.youtube.com/watch?v=SZorAJ4I-sA)
 - 2018 - Noam Shazeer on why you should train >1B models https://youtu.be/9P_VAMyb-7k and https://youtu.be/P8FJVfg3Z44
 - FT coverage of the paper authors and when and how they left https://archive.is/2023.07.23-044102/https://www.ft.com/content/37bb01af-ee46-4483-982f-ef3921436a50
 - backstory on the title https://news.ycombinator.com/item?id=38758413
+- aidan gomez [says](https://x.com/aidangomez/status/1773863558482202986?s=46&t=90xQ8sGy63D2OtiaoGJuww) the image was made with adobe illustrator
 The Illustrated Transformer - [https://jalammar.github.io/illustrated-transformer/](https://jalammar.github.io/illustrated-transformer/)
 - GPT in 60LOC https://jaykmody.com/blog/gpt-from-scratch/
 	- pre read https://jaykmody.com/blog/attention-intuition/
@@ -17,6 +19,7 @@ The Illustrated Transformer - [https://jalammar.github.io/illustrated-transform
 - explore miniGPT and nanoGPT via Karpathy
 	- [makemore and neural networks zero to hero](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)
 	- [tweetstorm](https://twitter.com/karpathy/status/1468370605229547522?s=20) on convergence, tweetstorm on [expressive, optimizable, efficient/parallelizable](https://twitter.com/karpathy/status/1593417989830848512?s=20) - elaborated in [1hr stanford lecture](j) and [8min lex fridman summary](https://www.youtube.com/watch?v=9uw3F6rndnA)
+	- [Transformers form Scratch](https://blog.matdmiller.com/posts/2023-06-10_transformers/notebook.html) - Karpathy's nanoGPT worked thru a notebook
 - poke around LLM visualization https://bbycroft.net/llm
 - explore https://osanseviero.github.io/hackerllama/blog/posts/random_transformer/
 - then read https://kipp.ly/transformer-inference-arithmetic/
@@ -54,6 +57,7 @@ The Illustrated Transformer - [https://jalammar.github.io/illustrated-transform
 - Reminder that my deep learning course [@unige_en](https://twitter.com/unige_en)is entirely available on-line. 1000+ slides, ~20h of screen-casts. [https://fleuret.org/dlc/](https://t.co/6OVyjPdwrC)
 - https://e2eml.school/transformers.html Transformers from Scratch
 
+https://www.jvoderho.com/blog.html?blogid=Transformer%20as%20a%20general%20purpose%20computer
 
 https://news.ycombinator.com/item?id=35712334
 The Illustrated Transformer is fantastic, but I would suggest that those going into it really should read the previous articles in the series to get a foundation to understand it more, plus later articles that go into GPT and BERT, here's the list:
@@ -71,6 +75,10 @@ Visualizing A Neural Machine Translation Model (Mechanics of Seq2seq Models With
 [2] [https://srush.github.io/raspy/](https://srush.github.io/raspy/)
 
 [3] [https://arxiv.org/abs/2301.05062](https://arxiv.org/abs/2301.05062)
+
+
+[3blue 1 brown visualizing attention](https://www.3blue1brown.com/lessons/attention) https://news.ycombinator.com/item?id=40035514
+- https://www.youtube.com/watch?v=wjZofJX0v4M
 
 
 The Illustrated BERT, ELMo, and co. (How NLP Cracked Transfer Learning) - [https://jalammar.github.io/illustrated-bert/](https://jalammar.github.io/illustrated-bert/)
@@ -120,6 +128,7 @@ attention visualization https://catherinesyeh.github.io/attn-docs/
 -   [**Sparks of artificial general intelligence: Early experiments with GPT-4**](https://arxiv.org/abs/2303.12712): Early analysis from Microsoft Research on the capabilities of GPT-4, the current most advanced LLM, relative to human intelligence.
 -   [**The AI revolution: How Auto-GPT unleashes a new era of automation and creativity**](https://pub.towardsai.net/the-ai-revolution-how-auto-gpt-unleashes-a-new-era-of-automation-and-creativity-2008aa2ca6ae): An introduction to Auto-GPT and AI agents in general. This technology is very early but important to understand — it uses internet access and self-generated sub-tasks in order to solve specific, complex problems or goals.
 -   **[The Waluigi Effect](https://www.lesswrong.com/posts/D7PumeYTDPfBTp3i7/the-waluigi-effect-mega-post)**: Nominally an explanation of the “Waluigi effect” (i.e., why “alter egos” emerge in LLM behavior), but interesting mostly for its deep dive on the theory of LLM prompting.
+- QKV https://x.com/karpathy/status/1794021159895507173
 
 
 
@@ -149,3 +158,8 @@ Applications of Transformers New survey paper highlighting major applications of
 Efficient Methods for Natural Language Processing: A Survey It lists effective techniques that use fewer resources while producing comparable outcomes to resource-intensive NLP systems.
 ![https://pbs.twimg.com/media/FhnMjm7WYAA8e18?format=jpg&name=medium]
 abs: [https://arxiv.org/abs/2209.00099](https://t.co/99Gp0rPZHi)
+
+
+## linear transformers
+
+- see https://manifestai.com/blogposts/faster-after-all/

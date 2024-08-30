@@ -78,12 +78,14 @@ This Readme is just the high level overview of the space; you should see the mos
 	  - Charm https://twitter.com/shubroski/status/1620139262925754368?s=20
   - https://www.summari.com/ Summari helps busy people read more
 - market maps/landscapes
+	- elad gil 2024 [stack chart](https://blog.eladgil.com/p/things-i-dont-know-about-ai)
 	- sequoia market map [jan 2023](https://twitter.com/sonyatweetybird/status/1584580362339962880), [july 2023](https://www.sequoiacap.com/article/llm-stack-perspective/), [sep 2023](https://www.sequoiacap.com/article/generative-ai-act-two/)
 	- base10 market map https://twitter.com/letsenhance_io/status/1594826383305449491
 	- matt shumer market map https://twitter.com/mattshumer_/status/1620465468229451776 https://docs.google.com/document/d/1sewTBzRF087F6hFXiyeOIsGC1N4N3O7rYzijVexCgoQ/edit
 	- nfx https://www.nfx.com/post/generative-ai-tech-5-layers?ref=context-by-cohere
 	- a16z https://a16z.com/2023/01/19/who-owns-the-generative-ai-platform/
 		- https://a16z.com/2023/06/20/emerging-architectures-for-llm-applications/
+		- https://a16z.com/100-gen-ai-apps
 	- madrona https://www.madrona.com/foundation-models/
 	- coatue
 		- https://www.coatue.com/blog/perspective/ai-the-coming-revolution-2023
@@ -168,9 +170,12 @@ The more advanced GPT3 reads have been split out to https://github.com/sw-yx/ai-
 	    -   Jailbreaking
 	    -   Prompt Injecting
 	    -   Data Poisoning & Backdoor Attacks
+	- [Evan Morikawa guide to LLM math](https://newsletter.pragmaticengineer.com/p/scaling-chatgpt) especially the 5 scaling challenges piece
   -  [A Hacker's Guide to Language Models](https://twitter.com/jeremyphoward/status/1705883362991472984?s=20)  ([youtube](https://youtu.be/jkrNMKz9pWU?si=BNz-v6VmdbX7QDtr)) Jeremy Howard's 90min complete overview of LLM learnings - starting at the basics: the 3-step pre-training / fine-tuning / classifier ULMFiT approach used in all modern LLMs.
+  - https://spreadsheets-are-all-you-need.ai
   - ["Catching up on the weird world of LLMs"](https://simonwillison.net/2023/Aug/3/weird-world-of-llms/) - Simon Willison's 40min overview + [Open Questions for AI Engineers](https://www.youtube.com/watch?v=AjLVoAu-u-Q)
   - [LLMs overview from Flyte](https://flyte.org/blog/getting-started-with-large-language-models-key-things-to-know#what-are-llms)
+  - Clementine Fourrier on [How Evals are Done](https://huggingface.co/blog/clefourrier/llm-evaluation)
   - [Patterns for building LLM-based systems and products](https://eugeneyan.com/writing/llm-patterns/) - great recap
 	  - [Evals](https://eugeneyan.com/writing/llm-patterns/#evals-to-measure-performance): To measure performance
 	-   [RAG](https://eugeneyan.com/writing/llm-patterns/#retrieval-augmented-generation-to-add-knowledge): To add recent, external knowledge
@@ -217,8 +222,12 @@ The more advanced GPT3 reads have been split out to https://github.com/sw-yx/ai-
   - on BPE tokenization https://towardsdatascience.com/byte-pair-encoding-subword-based-tokenization-algorithm-77828a70bee0 see also google sentencepiece and openai tiktoken
 	  - source in GPT2 source https://github.com/openai/gpt-2/blob/master/src/encoder.py
 	  - note that BPEs are suboptimal https://www.lesswrong.com/posts/dFbfCLZA4pejckeKc/a-mechanistic-explanation-for-solidgoldmagikarp-like-tokens?commentId=9jNdKscwEWBB4GTCQ
+		  - [//---------------------------------------------------------------------------------------------------------------- is a single GPT-4 token](https://twitter.com/goodside/status/1753192905844592989)
+		  - [GPT-3.5 crashes when it thinks about useRalativeImagePath too much](https://iter.ca/post/gpt-crash/)
 		  - causes math and string character issues https://news.ycombinator.com/item?id=35363769
+		  - and cause [issues with evals](https://x.com/main_horse/status/1744560083957411845?s=20)
 		  - [glitch tokens](https://news.ycombinator.com/item?id=39086318) happen when tokenizer has different dataset than LLM
+		  - [karpathy talking about why tokenization is messy](https://www.youtube.com/watch?v=zduSFxRajkE)
 	  - https://platform.openai.com/tokenizer and https://github.com/openai/tiktoken (more up to date: https://tiktokenizer.vercel.app/)
 	  - Wordpiece -> BPE -> SentenceTransformer
 		  -  [Preliminary reading on Embeddings](https://towardsdatascience.com/neural-network-embeddings-explained-4d028e6f0526?gi=ee46baab0d8f)
@@ -253,6 +262,7 @@ The more advanced GPT3 reads have been split out to https://github.com/sw-yx/ai-
 	- scaling laws, (https://arxiv.org/abs/2001.08361)
 	- emergent abilities (https://arxiv.org/abs/2206.07682)
 	- language models can follow both flipped labels and semantically-unrelated labels (https://arxiv.org/abs/2303.03846)
+ - [LLM Paper Notes](https://github.com/eugeneyan/llm-paper-notes) - notes from the [Latent Space paper club](https://www.latent.space/about#%C2%A7components) by [Eugene Yan](https://eugeneyan.com/)
 - Transformers from scratch https://e2eml.school/transformers.html
 	- transformers vs LSTM https://medium.com/analytics-vidhya/why-are-lstms-struggling-to-matchup-with-transformers-a1cc5b2557e3
 	- transformer code walkthru https://twitter.com/mark_riedl/status/1555188022534176768
@@ -271,7 +281,7 @@ The more advanced GPT3 reads have been split out to https://github.com/sw-yx/ai-
 	- [BabyGPT](https://twitter.com/karpathy/status/1645115622517542913) with two tokens 0/1 and context length of 3, viewing it as a finite state markov chain. It was trained on the sequence "111101111011110" for 50 iterations. The parameters and the architecture of the Transformer modifies the probabilities on the arrows.
 	- Build GPT from scratch https://www.youtube.com/watch?v=kCc8FmEb1nY
 	- different GPT from scratch in 60 LOC  https://jaykmody.com/blog/gpt-from-scratch/
-	- 
+- [Diffusion models from scratch, from a new theoretical perspective](https://www.chenyang.co/diffusion.html) - code driven intro of diffusion models
 - [137 emergent abilities of large language models](https://www.jasonwei.net/blog/emergence)
 	- Emergent few-shot prompted tasks: BIG-Bench and MMLU benchmarks
 	- Emergent prompting strategies
@@ -308,6 +318,7 @@ The more advanced GPT3 reads have been split out to https://github.com/sw-yx/ai-
 	- https://finbarrtimbers.substack.com/p/five-years-of-progress-in-gpts GPT1/2/3, Megatron, Gopher, Chinchilla, PaLM, LLaMa
 	- good summary paper (8 things to know) https://cims.nyu.edu/~sbowman/eightthings.pdf
 - [Huggingface MOE explainer](https://huggingface.co/blog/moe)
+- https://blog.alexalemi.com/kl-is-all-you-need.html
 
 
 
@@ -336,17 +347,18 @@ We compared 126 keyword modifiers with the same prompt and initial image. These 
 
 ## Communities
 
-- Discords (see https://buttondown.email/ainews for daily email recaps)
+- Discords (see https://buttondown.email/ainews for daily email recaps, updated live)
 	- [Latent Space Discord](https://discord.gg/xJJMRaWCRt) (ours!)
 	- General hacking and learning
 		- [ChatGPT Hackers Discord](https://www.chatgpthackers.dev/)
 		- [Alignment Lab AI Discord](https://discord.com/invite/k36qjUxyJC)
 		- [Nous Research Discord]([https://discord.gg/T3kTZfYzs6](https://t.co/D3omqAxP04))
 		- [DiscoLM Discord](https://discord.com/invite/vGRFMnS6c2)
-		- [Karpathy Discord](https://discord.gg/3zy8kqD9Cp) (inactive): 
+		- [Karpathy Discord](https://discord.gg/3zy8kqD9Cp) (inactive)
 		- [HuggingFace Discord](https://discuss.huggingface.co/t/join-the-hugging-face-discord/11263)
 		- [Skunkworks AI Discord](https://discord.gg/3Sfmpd3Njt) (new)
 		- [Jeff Wang/LLM Perf enthusiasts discord](https://twitter.com/wangzjeff)
+		- [CUDA Mode (Mark Saroufim)](https://discord.com/invite/Wu4pdW8QqM) see [Youtube](https://www.youtube.com/@CUDAMODE) and [GitHub](https://github.com/cuda-mode)
 	- Art
 		- [StableDiffusion Discord](https://discord.com/invite/stablediffusion) 
 		- Deforum Discord https://discord.gg/upmXXsrwZc
@@ -482,7 +494,8 @@ This list will be out of date but will get you started. My live list of people t
 - It's just matrix multiplication/stochastic parrots
 	- Even LLM skeptic Yann LeCun says LLMs have some level of understanding: https://twitter.com/ylecun/status/1667947166764023808
 	- Gary Marcus’ “Deep Learning is Hitting a Wall” https://nautil.us/deep-learning-is-hitting-a-wall-238440/ pushed symbolic systems
-
+- "guo lai ren" antihypers-> worriers
+	- https://adamkarvonen.github.io/machine_learning/2024/03/20/chess-gpt-interventions.html#next-token-predictors
 
 
 ## Legal, Ethics, and Privacy
@@ -490,6 +503,7 @@ This list will be out of date but will get you started. My live list of people t
 - NSFW filter https://vickiboykis.com/2022/11/18/some-notes-on-the-stable-diffusion-safety-filter/
 - On "AI Art Panic" https://opguides.info/posts/aiartpanic/
 	- [I lost everything that made me love my job through Midjourney](https://old.reddit.com/r/blender/comments/121lhfq/i_lost_everything_that_made_me_love_my_job/)
+	- [Midjourney artist list](https://www.theartnewspaper.com/2024/01/04/leaked-names-of-16000-artists-used-to-train-midjourney-ai#)
 - Yannick influencing OPENRAIL-M https://www.youtube.com/watch?v=W5M-dvzpzSQ
 - art schools accepting AI art https://twitter.com/DaveRogenmoser/status/1597746558145265664
 - DRM issues https://undeleted.ronsor.com/voice.ai-gpl-violations-with-a-side-of-drm/
@@ -501,12 +515,14 @@ This list will be out of date but will get you started. My live list of people t
 - scraping content 
 	- https://blog.ericgoldman.org/archives/2023/08/web-scraping-for-me-but-not-for-thee-guest-blog-post.htm
 	- sarah silverman case - openai response https://arstechnica.com/tech-policy/2023/08/openai-disputes-authors-claims-that-every-chatgpt-response-is-a-derivative-work/
+	- openai response 
 - Licensing
 	- [AI weights are not open "source" - Sid Sijbrandij](https://opencoreventures.com/blog/2023-06-27-ai-weights-are-not-open-source/)
 - Diversity and Equity
 	- sexualizing minorities https://twitter.com/lanadenina/status/1680238883206832129 the reason is [porn is good at bodies](https://twitter.com/levelsio/status/1680665706235404288)
 	- [OpenAI tacking on "black" randomly to make DallE diverse](https://twitter.com/rzhang88/status/1549472829304741888?s=20)
 - Privacy - confidential computing https://www.edgeless.systems/blog/how-confidential-computing-and-ai-fit-together/
+- AI taking jobs https://donaldclarkplanb.blogspot.com/2024/02/this-is-why-idea-that-ai-will-just.html
 
 ## Alignment, Safety
 
